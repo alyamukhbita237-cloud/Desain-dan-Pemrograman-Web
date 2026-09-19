@@ -1,7 +1,6 @@
 
 ### Wireframe Halaman Login
 
-+--------------------------------------+
 |              SIMPUS-Mini             |
 |--------------------------------------|
 |                                      |
@@ -17,7 +16,6 @@
 
 ### Wireframe Dashboard Petugas
 
-+-----------------------------------------------------+
 | SIMPUS-Mini      Beranda | Buku | Anggota | Peminjaman | (Nama Petugas) Logout |
 |-------------------------------------------------------|
 |  [Total Buku]   [Total Anggota]   [Sedang Dipinjam]    |
