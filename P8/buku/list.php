@@ -26,6 +26,7 @@ $daftarBuku = $pdo->query("SELECT * FROM buku ORDER BY id DESC")->fetchAll(PDO::
                         <th>Tahun</th>
                         <th>Stok</th>
                         <th>Aksi</th>
+                        <th>Tanggal Ditambahkan</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +45,7 @@ $daftarBuku = $pdo->query("SELECT * FROM buku ORDER BY id DESC")->fetchAll(PDO::
                                 <button type="button">Edit</button>
                                 <button type="button" class="btn-hapus">Hapus</button>
                             </td>
+                            <td><?= htmlspecialchars($buku['tanggal_ditambahkan']) ?></td>
                         </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
