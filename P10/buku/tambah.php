@@ -15,35 +15,39 @@ unset($_SESSION['flash']);
 
             <form id="form-tambah" method="post" action="proses_tambah.php">
                 <p>
-                    <label for="judul">Judul</label><br>
+                    <label for="judul">Judul</label>
                     <input type="text" id="judul" name="judul" required>
                 </p>
                 <p>
-                    <label for="pengarang">Pengarang</label><br>
+                    <label for="pengarang">Pengarang</label>
                     <input type="text" id="pengarang" name="pengarang" required>
                 </p>
                 <p>
-                    <label for="tahun">Tahun Terbit</label><br>
+                    <label for="tahun">Tahun Terbit</label>
                     <input type="number" id="tahun" name="tahun" min="1900" max="2026" required>
                 </p>
                 <p>
-                    <label for="isbn">ISBN</label><br>
+                    <label for="isbn">ISBN</label>
                     <input type="text" id="isbn" name="isbn">
                 </p>
                 <p>
-                    <label for="stok">Stok</label><br>
+                    <label for="stok">Stok</label>
                     <input type="number" id="stok" name="stok" min="0" required>
                 </p>
                 <p>
-                    <label for="kategori">Kategori</label><br>
+                    <label for="kategori">Kategori</label>
                     <select id="kategori" name="kategori">
                         <option value="fiksi">Fiksi</option>
                         <option value="non-fiksi">Non-Fiksi</option>
                         <option value="referensi">Referensi</option>
                     </select>
                 </p>
+                <div class="form-group">
+                    <label for="lokasi_rak">Lokasi Rak</label>
+                    <input type="text" id="lokasi_rak" name="lokasi_rak" placeholder="Contoh: Rak A1" >
+                </div>
                 <p>
-                    <button type="submit">Simpan</button>
+                    <br><button type="submit">Simpan</button>
                 </p>
             </form>
         </section>

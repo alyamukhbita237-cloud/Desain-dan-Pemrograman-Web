@@ -5,7 +5,7 @@ require __DIR__ . '/../includes/koneksi.php';
 $nama = trim($_POST['nama'] ?? '');
 $noAnggota = trim($_POST['no_anggota'] ?? '');
 $alamat = trim($_POST['alamat'] ?? '');
-$noHp = trim($_POST['no_Hp'] ?? '');
+$noHp = trim($_POST['no_hp'] ?? '');
 
 $errors = [];
 if ($nama === '') {

@@ -9,6 +9,7 @@ $tahun = $_POST['tahun'] ?? '';
 $isbn = trim($_POST['isbn'] ?? '');
 $stok = $_POST['stok'] ?? '';
 $kategori = trim($_POST['kategori'] ?? '');
+$lokasi_rak = trim($_POST['lokasi_rak'] ?? '');
 
 if (!$id) {
     header('Location: list.php');
@@ -37,7 +38,7 @@ if (!empty($errors)) {
 
 $stmt = $pdo->prepare(
     "UPDATE buku SET judul = :judul, pengarang = :pengarang, tahun = :tahun,
-     isbn = :isbn, stok = :stok, kategori = :kategori WHERE id = :id"
+     isbn = :isbn, stok = :stok, kategori = :kategori, lokasi_rak = :lokasi_rak WHERE id = :id"
 );
 $stmt->execute([
     'judul' => $judul,
@@ -47,6 +48,7 @@ $stmt->execute([
     'stok' => (int) $stok,
     'kategori' => $kategori,
     'id' => $id,
+    'lokasi_rak' => $lokasi_rak,
 ]);
 
 $_SESSION['flash'] = ['type' => 'success', 'pesan' => 'Buku berhasil diperbarui.'];

@@ -32,33 +32,39 @@ if (!$buku) {
             <form id="form-tambah" method="post" action="proses_edit.php">
                 <input type="hidden" name="id" value="<?php echo $buku['id']; ?>">
                 <p>
-                    <label for="judul">Judul</label><br>
+                    <label for="judul">Judul</label>
                     <input type="text" id="judul" name="judul" value="<?php echo $buku['judul']; ?>" required>
                 </p>
                 <p>
-                    <label for="pengarang">Pengarang</label><br>
+                    <label for="pengarang">Pengarang</label>
                     <input type="text" id="pengarang" name="pengarang" value="<?php echo $buku['pengarang']; ?>" required>
                 </p>
                 <p>
-                    <label for="tahun">Tahun Terbit</label><br>
+                    <label for="tahun">Tahun Terbit</label>
                     <input type="number" id="tahun" name="tahun" min="1900" max="2026" value="<?php echo $buku['tahun']; ?>" required>
                 </p>
                 <p>
-                    <label for="isbn">ISBN</label><br>
+                    <label for="isbn">ISBN</label>
                     <input type="text" id="isbn" name="isbn" value="<?php echo $buku['isbn']; ?>">
                 </p>
                 <p>
-                    <label for="stok">Stok</label><br>
+                    <label for="stok">Stok</label>
                     <input type="number" id="stok" name="stok" min="0" value="<?php echo $buku['stok']; ?>" required>
                 </p>
                 <p>
-                    <label for="kategori">Kategori</label><br>
+                    <label for="kategori">Kategori</label>
                     <select id="kategori" name="kategori">
                         <?php foreach (['fiksi' => 'Fiksi', 'non-fiksi' => 'Non-Fiksi', 'referensi' => 'Referensi'] as $value => $label): ?>
                         <option value="<?php echo $value; ?>" <?php echo $buku['kategori'] === $value ? 'selected' : ''; ?>><?php echo $label; ?></option>
                         <?php endforeach; ?>
                     </select>
                 </p>
+                </p>
+                <div class="form-group">
+                    <label for="lokasi_rak">Lokasi Rak</label>
+                    <input type="text" id="lokasi_rak" name="lokasi_rak" value="<?php echo htmlspecialchars($buku['lokasi_rak'] ?? ''); ?>" placeholder="Contoh: Rak A1" >
+                </div>
+                <p>
                 <p>
                     <button type="submit">Update</button>
                 </p>

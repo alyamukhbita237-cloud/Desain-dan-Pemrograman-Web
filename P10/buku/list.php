@@ -39,7 +39,7 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
             <div class="search-box">
                 <form method="get" action="list.php">
                     <span>
-                        <label for="search-input">Cari Judul Buku</label><br>
+                        <label for="search-input">Cari Judul Buku</label>
                         <input type="text" id="search-input" name="q" value="<?php echo $keyword; ?>" placeholder="Ketik judul buku...">
                     </span>
                     <button type="submit">Cari</button>
@@ -55,6 +55,8 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
                         <th>Tahun</th>
                         <th>Stok</th>
                         <th>Aksi</th>
+                        <th>Kategori</th>
+                        <th>Lokasi Rak</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,6 +78,8 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
                                     <button type="submit" class="btn-hapus">Hapus</button>
                                 </form>
                             </td>
+                            <td><?php echo $buku['kategori']; ?></td>
+                            <td><?php echo $buku['lokasi_rak'] ?? '-' ?></td>
                         </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>

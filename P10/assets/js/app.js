@@ -74,9 +74,41 @@ function initValidasiForm() {
     });
 }
 
+const password = document.getElementById("password");
+const toggle = document.getElementById("togglePassword");
+
+if (password && toggle) {
+    toggle.addEventListener("click", function () {
+        password.type =
+            password.type === "password" ? "text" : "password";
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const tombolProfil = document.getElementById("tombolProfil");
+    const menuProfil = document.getElementById("menuProfil");
+
+    if (!tombolProfil || !menuProfil) return;
+
+    tombolProfil.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        const terbuka = menuProfil.classList.toggle("aktif");
+        tombolProfil.setAttribute("aria-expanded", terbuka);
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!event.target.closest(".profil-petugas")) {
+            menuProfil.classList.remove("aktif");
+            tombolProfil.setAttribute("aria-expanded", "false");
+        }
+    });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     initNavToggle();
     initHapusConfirm();
     initTableFilter();
     initValidasiForm();
+    initProfilDropdown();
 });

@@ -21,7 +21,9 @@ a:hover {
 }
 
 header {
-    position: flex;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
     background-color: #3c679b;
     color: #fff;
     padding: 1rem 1.5rem;
@@ -44,6 +46,22 @@ header nav ul {
 header nav a {
     color: #fff;
     font-weight: 500;
+    text-decoration: wavy;
+    display: inline-block;
+    padding: 0.4rem 0;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s ease, 
+                border-color 0.2s ease;
+}
+
+header nav a:hover {
+    color: #7a8794;
+}
+
+header nav a.active {
+    color: #7a8794;
+    font-weight: 700;
+    border-bottom-color: #7a8794;
 }
 
 .auth-status {
@@ -222,7 +240,8 @@ footer {
 /* Mobile */
 @media (max-width: 480px) {
     header {
-        position: relative;
+        position: sticky;
+        top: 0;
     }
 
     .nav-toggle-label {
@@ -326,4 +345,69 @@ footer {
     background-color: #1d5b8a;
     color: #fff;
     cursor: pointer;
+}
+
+
+.profil-petugas {
+    position: relative;
+}
+
+.tombol-profil {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.tombol-profil:hover {
+    background: #e8eef5;
+}
+
+.tombol-profil img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.menu-profil {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 180px;
+    padding: 12px;
+    background: white;
+    color: #cb2828;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px #0002;
+    z-index: 1000;
+}
+
+.menu-profil.aktif {
+    display: block;
+}
+
+.menu-profil p {
+    margin: 4px 0 12px;
+    font-weight: bold;
+}
+
+.menu-profil a {
+    display: block;
+    padding: 9px;
+    color: #c62828;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.menu-profil a:hover {
+    background: #fbe9e7;
 }
