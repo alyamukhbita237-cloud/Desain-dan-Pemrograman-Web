@@ -2,6 +2,8 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+require_once __DIR__ . '/helpers.php';
+require_once __DIR__ . '/csrf.php';
 $sudahLogin = isset($_SESSION['user_id']);
 
 $__jobsheetRoot = dirname(__DIR__);
@@ -26,20 +28,21 @@ $base = $__rel === '' ? '' : str_repeat('../', substr_count($__rel, '/') + 1);
                 <?php
                 $halaman = basename($_SERVER['SCRIPT_NAME']);
                 $folder = basename(dirname($_SERVER['SCRIPT_NAME']));
-
                 $aktifBeranda = ($halaman === 'index.php' && $folder === 'P10');
                 $aktifDaftarBuku = ($folder === 'buku' && in_array($halaman, ['list.php', 'edit.php', 'proses_edit.php']));
                 $aktifTambahBuku = ($folder === 'buku' && in_array($halaman, ['tambah.php', 'proses_tambah.php']));
                 $aktifDaftarAnggota = ($folder === 'anggota' && in_array($halaman, ['list.php', 'edit.php', 'proses_edit.php']));
                 $aktifTambahAnggota = ($folder === 'anggota' && in_array($halaman, ['tambah.php', 'proses_tambah.php']));
                 ?>
-
                 <li><a href="<?php echo $base; ?>index.php" class="<?php echo $aktifBeranda ? 'active' : ''; ?>">Beranda</a></li>
                 <li><a href="<?php echo $base; ?>buku/list.php" class="<?php echo $aktifDaftarBuku ? 'active' : ''; ?>">Daftar Buku</a></li>
                 <?php if ($sudahLogin): ?>
                 <li><a href="<?php echo $base; ?>buku/tambah.php" class="<?php echo $aktifTambahBuku ? 'active' : ''; ?>">Tambah Buku</a></li>
                 <li><a href="<?php echo $base; ?>anggota/list.php"  class="<?php echo $aktifDaftarAnggota ? 'active' : ''; ?>">Daftar Anggota</a></li>
                 <li><a href="<?php echo $base; ?>anggota/tambah.php" class="<?php echo $aktifTambahAnggota ? 'active' : ''; ?>">Tambah Anggota</a></li>
+                <li><a href="<?php echo $base; ?>peminjaman/tambah.php">Peminjaman Baru</a></li>
+                <li><a href="<?php echo $base; ?>peminjaman/kembali.php">Pengembalian</a></li>
+                <li><a href="<?php echo $base; ?>peminjaman/riwayat.php">Riwayat</a></li>
                 <?php endif; ?>
             </ul>
         </nav>

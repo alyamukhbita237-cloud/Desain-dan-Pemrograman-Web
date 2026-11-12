@@ -1,13 +1,23 @@
 <?php
-$host = "localhost";
-$port = "5432";
-$db = "simpus_mini";
-$user = "postgres";
-$pass = "la210307";
+$config = require __DIR__ . '/config.php';
+
+$sslmode = getenv('DB_SSLMODE') ?: 'require';
 
 try {
-    $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$db", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dsn = "pgsql:host={$config['db_host']};"
+         . "port={$config['db_port']};"
+         . "dbname={$config['db_name']};"
+         . "sslmode={$sslmode}";
+
+    $pdo = new PDO(
+        $dsn,
+        $config['db_user'],
+        $config['db_pass'],
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
+
 } catch (PDOException $e) {
-    die("Koneksi database gagal: " . $e->getMessage());
+    error_log($e->getMessage());
+    http_response_code(500);
+    exit('Koneksi database tidak tersedia. Silahkan coba kembali.');
 }

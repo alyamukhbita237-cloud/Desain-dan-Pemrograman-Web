@@ -8,10 +8,13 @@ unset($_SESSION['flash']);
 ?>
         <section>
             <h2>Tambah Anggota</h2>
+
             <?php if ($flash): ?>
                 <p class="flash flash-<?php echo $flash['type']; ?>"><?php echo $flash['pesan']; ?></p>
             <?php endif; ?>
+
             <form id="form-tambah" method="post" action="proses_tambah.php">
+                <?php echo csrf_field(); ?>
                 <p>
                     <label for="nama">Nama</label>
                     <input type="text" id="nama" name="nama" required>
