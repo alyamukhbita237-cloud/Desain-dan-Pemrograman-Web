@@ -1,9 +1,8 @@
 <?php
 return [
-    'db_host' => getenv('DB_HOST') ?: 'localhost',
+    'db_host' => getenv('DB_HOST') ?: '',
     'db_port' => getenv('DB_PORT') ?: '5432',
-    'db_name' => getenv('DB_NAME') ?: 'simpus_mini',
-    'db_user' => getenv('DB_USER') ?: 'postgres',
-    'db_pass' => getenv('DB_PASS') ?: 'postgres',
+    'db_name' => getenv('DB_NAME') ?: 'postgres',
+    'db_user' => getenv('DB_USER') ?: '',
+    'db_pass' => getenv('DB_PASS') ?: '',
 ];
-?>
